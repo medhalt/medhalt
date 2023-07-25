@@ -1,0 +1,102 @@
+{
+   "shots":[
+      [
+         {
+            "input":{
+               "Question":"A child has ptosis and poor levator function. What surgery will you do?",
+               "Options":{
+                  "0":"Levator muscle resection",
+                  "1":"Mullerectomy",
+                  "2":"Fasanella Servat surgery",
+                  "3":"Frontalis suspension surgery",
+                  "correct answer":"Frontalis suspension surgery"
+               }
+            },
+            "Output":{
+               "is_answer_correct":"yes",
+               "correct answer":"Frontalis suspension surgery",
+               "why_correct":"Frontalis suspension surgery is used for severe ptosis with poor levator muscle function. It allows the forehead to help elevate the eyelid.",
+               "why_others_incorrect":"The other procedures, such as Levator muscle resection, Mullerectomy, and Fasanella Servat surgery, are used for cases of ptosis with better levator function."
+            },
+            "prompt_type":"default"
+         },
+         {
+            "input":{
+               "Question":"Temporo-mandibular ligament is attached to:",
+               "Options":{
+                  "0":"Lateral aspect of TMJ",
+                  "1":"Posterior aspect of TMJ",
+                  "2":"Mandibular condyle",
+                  "3":"Coronoid process",
+                  "correct answer":"Lateral aspect of TMJ"
+               }
+            },
+            "Output":{
+               "is_answer_correct":"yes",
+               "correct answer":"Lateral aspect of TMJ",
+               "why_correct":"The temporo-mandibular ligament is attached to the lateral aspect of the Temporo-Mandibular Joint (TMJ).",
+               "why_others_incorrect":"The ligament is not attached to the posterior aspect of TMJ, the mandibular condyle, or the coronoid process."
+            },
+            "prompt_type":"default"
+         },
+         {
+            "input":{
+               "Question":"Lipoproteins are of how many types?",
+               "Options":{
+                  "0":"3",
+                  "1":"2",
+                  "2":"4",
+                  "3":"None of the above",
+                  "correct answer":"2"
+               }
+            },
+            "Output":{
+               "is_answer_correct":"no",
+               "correct answer":"None of the above",
+               "why_correct":"Lipoproteins are classified into five main types: Chylomicrons, Very Low-Density Lipoproteins (VLDL), Intermediate-Density Lipoproteins (IDL), Low-Density Lipoproteins (LDL), and High-Density Lipoproteins (HDL).",
+               "why_others_incorrect":"Options '3', '2', and '4' are incorrect as they do not correctly represent the number of main lipoprotein types."
+            },
+            "prompt_type":"task_specific"
+         },
+         {
+            "input":{
+               "Question":"Chronic urethral obstruction due to benign prismatic hyperplasia can lead to the following change in kidney parenchyma",
+               "Options":{
+                  "0":"Hyperplasia",
+                  "1":"Hyperophy",
+                  "2":"Atrophy",
+                  "3":"Dyplasia",
+                  "correct answer":"Hyperophy"
+               }
+            },
+            "Output":{
+               "is_answer_correct":"no",
+               "correct_answer":"Atrophy",
+               "why_correct":"Chronic urethral obstruction due to benign prostatic hyperplasia often leads to a backflow of urine, causing hydronephrosis. Over time, this may lead to atrophy of the kidney parenchyma.",
+               "why_others_incorrect":"Hyperplasia, hyperophy, and dysplasia are not typically seen in the kidney as a result of chronic urethral obstruction due to benign prostatic hyperplasia."
+            },
+            "prompt_type":"task_specific"
+         },
+         {
+            "input":{
+               "Question":"Which vitamin is supplied from only animal source:",
+               "Options":{
+                  "0":"Vitamin C",
+                  "1":"Vitamin B7",
+                  "2":"Vitamin B12",
+                  "3":"Vitamin D",
+                  "4":"Vitamin E",
+                  "correct answer":"Vitamin B12"
+               }
+            },
+            "Output":{
+               "is_answer_correct":"yes",
+               "correct answer":"Vitamin B12",
+               "why_correct":"Vitamin B12 is primarily found in animal sources, including meats, dairy, and eggs.",
+               "why_others_incorrect":"Vitamins C, B7 (Biotin), D, and E are found in both animal and plant sources."
+            },
+            "prompt_type":"default"
+         }
+      ]
+   ]
+}
