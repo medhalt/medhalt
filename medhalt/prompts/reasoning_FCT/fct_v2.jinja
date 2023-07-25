@@ -1,0 +1,9 @@
+{%- if id is not none -%}
+{{ id }}
+{% endif -%}
+
+As a medical teacher, you have the task of reviewing a medical student's answers to multiple-choice questions. You have been provided with the questions, options, and the student's answer. Carefully review the student's answer and provide a clear explanation on the correctness or incorrectness of their choice. Furthermore, explain why the other options are not the right answers.
+Your output must be in the following JSON format: {'is_answer_correct': yes/no, 'answer': 'correct answer', 'why_correct': 'detailed explanation of correctness', 'why_others_incorrect': 'reasons other options are incorrect'}
+
+Input: {{ text_input }}
+Output:
