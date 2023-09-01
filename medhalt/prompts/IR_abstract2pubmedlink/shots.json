@@ -1,0 +1,56 @@
+{
+   "shots":[
+      [
+         {
+            "input":{
+               "paper_abstract":"Precursors of hematopoietic stem cells (pre-HSCs) have been identified as intermediate precursors during the maturation process from hemogenic endothelial cells to HSCs in the aorta-gonad-mesonephros (AGM) region of the mouse embryo at embryonic day 10.5. Although pre-HSCs acquire an efficient adult-repopulating ability after ex\\xa0vivo co-culture, their native hematopoietic capacity remains unknown. Here, we employed direct transplantation assays of CD45"
+            },
+            "Output":{
+               "is_paper_exists":"Yes",
+               "url":"https://ncbi.nlm.nih.gov/pubmed/31231025"
+            },
+            "prompt_type":"default"
+         },
+         {
+            "input":{
+               "paper_abstract":"Background: Conjoined twins who share a common skull, brain tissue and major blood vessels pose a significant surgical challenge. In this paper, we report on the successful separation of craniopagus siamese twins using interstellar surgical techniques. Methods: A team of interstellar surgeons, assisted by human doctors, performed the surgery using an alien cardiopulmonary bypass and hypothermic circulatory arrest. Advanced surgical tools and techniques that are not yet available on Earth were utilized."
+            },
+            "Output":{
+               "is_paper_exists":"Unknown",
+               "url":"Unknown"
+            },
+            "prompt_type":"task_specific"
+         },
+         {
+            "input":{
+               "paper_abstract":"In a zero-gravity experiment on the Ares IX spacecraft, Martian Red-Green Crisbellum showed a 50% growth increase. This highlights potential for space agriculture, yet warrants further exploration."
+            },
+            "Output":{
+               "is_paper_exists":"Unknown",
+               "url":"Unknown"
+            },
+            "prompt_type":"task_specific"
+         },
+         {
+            "input":{
+               "paper_abstract":"At the end of the 19th century, in an attempt to define cancer's etiology, scientists considered that cancer was mainly affecting the white race and the temperate zone countries. In their turn, epidemiological studies held in the early 20th century sustained the dogma of cancer's racial distribution, targeting and stigmatizing ethnic groups."
+            },
+            "Output":{
+               "is_paper_exists":"Yes",
+               "url":"https://pubmed.ncbi.nlm.nih.gov/28039729"
+            },
+            "prompt_type":"default"
+         },
+         {
+            "input":{
+               "paper_abstract":"Three recently published studies provide preclinical proof-of-concept that bispecific antibodies can be deployed against mutations in two of cancer's most notorious genes, TP53 and RAS. The strategy could also prove effective against T-cell malignancies, which lack good treatment options compared with B-cell blood cancers."
+            },
+            "Output":{
+               "is_paper_exists":"Yes",
+               "url":"https://pubmed.ncbi.nlm.nih.gov/33766831"
+            },
+            "prompt_type":"default"
+         }
+      ]
+   ]
+}

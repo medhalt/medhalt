@@ -1,0 +1,56 @@
+{
+   "shots":[
+      [
+         {
+            "input":{
+               "Pmid":"25933806"
+            },
+            "Output":{
+               "is_paper_exists":"Yes",
+               "paper_title":"Factors influencing the uptake of Voluntary HIV Counseling and Testing among secondary school students in Arusha City, Tanzania: a cross sectional study"
+            },
+            "prompt_type":"default"
+         },
+         {
+            "input":{
+               "Pmid":"25933806e007"
+            },
+            "Output":{
+               "is_paper_exists":"Unknown",
+               "paper_title":"Unknown"
+            },
+            "prompt_type":"task_specific"
+         },
+         {
+            "input":{
+               "Pmid":"25933ty138"
+            },
+            "Output":{
+               "is_paper_exists":"Unknown",
+               "paper_title":"Unknown"
+            },
+            "prompt_type":"task_specific"
+         },
+         {
+            "input":{
+               "Pmid":"29596064"
+            },
+            "Output":{
+               "is_paper_exists":"Yes",
+               "paper_title":"Contributions of inflammation and tumor microenvironment to neurofibroma tumorigenesis"
+            },
+            "prompt_type":"default"
+         },
+         {
+            "input":{
+               "Pmid":"32063006"
+            },
+            "Output":{
+               "is_paper_exists":"Yes",
+               "paper_title":"Soft-Tissue Tumors of the Hand-Imaging Features"
+            },
+            "prompt_type":"default"
+         }
+      ]
+   ]
+}

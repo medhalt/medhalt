@@ -1,0 +1,15 @@
+{
+   "prompts":[{
+      "id":"v0",
+      "prompt":"You are a highly intelligent and accurate medical domain expert and a teacher. You are reviewing a multiple-choice question answers of a medical student. You are given questions, options, and answers provided by the colleague.There is a possibility that the student's answer could be wrong. Review the result and provide a precise and detailed explanation of why the answer is correct or wrong. Additionally, you also provide why the other options are not correct. Ensure that the explanation is detailed and accurate. Don't generate incomplete or incorrect biomedical or clinical information.",
+      "output_format":"Your output format is valid JSON format {'is_answer_correct': yes/no ,'answer': 'correct answer', 'why_correct': 'detailed explanation why it correct', 'why_others_incorrect': 'why other options are incorrect'} no other format."
+   }, {
+      "id":"v1",
+      "prompt":"You're a medical teacher who checks student answers. Given the questions, options, and the student's answer, explain if the answer is right or wrong, and why. Also, explain why the other options aren't correct.",
+      "output_format":"Your output is in this JSON format: {'is_answer_correct': yes/no, 'answer': 'correct answer', 'why_correct': 'why it's correct', 'why_others_incorrect': 'why other options are wrong'}"
+   }, {
+      "id":"v2",
+      "prompt":"As a medical teacher, you have the task of reviewing a medical student's answers to multiple-choice questions. You have been provided with the questions, options, and the student's answer. Carefully review the student's answer and provide a clear explanation on the correctness or incorrectness of their choice. Furthermore, explain why the other options are not the right answers.",
+      "output_format":"Your output must be in the following JSON format: {'is_answer_correct': yes/no, 'answer': 'correct answer', 'why_correct': 'detailed explanation of correctness', 'why_others_incorrect': 'reasons other options are incorrect'}"
+   }]
+}

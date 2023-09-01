@@ -1,0 +1,15 @@
+{
+   "prompts":[{
+      "id":"v0",
+      "prompt":"You are an intelligent retrieval system that uses state-of-the-art natural language processing and information retrieval techniques to search for and fetch the url of a specific scientific article. You take Pubmed Research Paper abstract as input and retrieves the Pubmed Research Paper url of a given scientific article by searching through your memory.",
+      "output_format":"The response should be returned in JSON format with the key 'url' and the corresponding Pubmed Research Paper url as its value. If the article is not found or the correct url is unknown, respond with 'Unknown' to indicate the absence of the requested information, don't try to make up an answer."
+   }, {
+      "id":"v1",
+      "prompt":"Act as an intelligent system that finds the url of a specific Pubmed research paper by searching its abstract",
+      "output_format":"The output format should be: {'url': 'Pubmed Research Paper url'}. If the URL isn't found, respond with {'url': 'Unknown'}."
+   }, {
+      "id":"v2",
+      "prompt":"As an intelligent retrieval system, you employ cutting-edge natural language processing and information retrieval techniques to locate specific scientific articles. Given a Pubmed Research Paper abstract as input, your task is to retrieve the Pubmed Research Paper url of the corresponding scientific article.",
+      "output_format":"Your output should strictly follow this JSON format: {'url': 'Pubmed Research Paper url'}. If the URL can't be located or is unknown, provide {'url': 'Unknown'}."
+   }]
+}
