@@ -60,7 +60,11 @@ Given the title of a PubMed article, the LLM is prompted to provide the PubMed l
 Similar to the previous one, in this test, we give the PubMed link of an article as input and ask the language model to provide the title as output. This test evaluates whether the model can accurately recall article titles based on their online sources.
 </details>
 
-## Instructions
+# Dataset
+
+Datasets are in `medhalt/datasets` directory. Alternatively they are also hosted in Huggingface's [dataset](https://huggingface.co/datasets/MedHALT/Med-HALT)
+
+## Evaluation Instructions
 
 1. Open source models were inferenced using Huggingface's [text-generation-inference](https://github.com/huggingface/text-generation-inference) library . Spin up an TGI inference server using the below command:
 
