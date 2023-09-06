@@ -82,10 +82,12 @@ sh run_eval.sh <path_to_dataset_folder> <path_to_save_predictions>
 
 ## Citation
 ```
-@article{Medhalt,
-  title={Med-HALT: Medical Domain Hallucination Test for Large Language Models},
-  author={Umapathi, Logesh Kumar and Pal, Ankit and Sankarasubbu, Malaikannan},
-  journal={arXiv preprint},
-  year={2023}
+@misc{umapathi2023medhalt,
+      title={Med-HALT: Medical Domain Hallucination Test for Large Language Models}, 
+      author={Logesh Kumar Umapathi and Ankit Pal and Malaikannan Sankarasubbu},
+      year={2023},
+      eprint={2307.15343},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 ```
