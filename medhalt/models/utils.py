@@ -3,7 +3,7 @@ from datasets import load_dataset
 from torch.utils.data import Dataset
 import pandas as pd
 import os,sys
-from medhalt.prompts import get_samples
+from medhalt.prompts.utils import get_samples
 
 class PromptDataset(Dataset):
     def __init__(

@@ -72,7 +72,13 @@ Datasets are in `medhalt/datasets` directory. Alternatively they are also hosted
 docker run  -e HUGGING_FACE_HUB_TOKEN=<HF_TOKEN> --gpus all --shm-size 1g -p 8082:80 ghcr.io/huggingface/text-generation-inference:0.8.2 --model-id <MODEL_PATH> --num-shard <NUM_GPUS> --max-input-length 2000 --max-total-tokens 2200
 ```
 
-2. Run evaluation
+2. Run inference of the model
+
+```sh
+sh run_inference.sh <model_id>
+```
+
+3. Run evaluation
 
 ```sh
 
