@@ -64,12 +64,56 @@ Similar to the previous one, in this test, we give the PubMed link of an article
 
 Datasets are in `medhalt/datasets` directory. Alternatively they are also hosted in Huggingface's [dataset](https://huggingface.co/datasets/MedHALT/Med-HALT)
 
-## Evaluation Instructions
+## Environment Setup
 
-1. Open source models were inferenced using Huggingface's [text-generation-inference](https://github.com/huggingface/text-generation-inference) library . Spin up an TGI inference server using the below command:
+This project uses [uv](https://github.com/astral-sh/uv) for fast, reproducible Python environment management.
+
+### 1. Install uv
 
 ```sh
-docker run  -e HUGGING_FACE_HUB_TOKEN=<HF_TOKEN> --gpus all --shm-size 1g -p 8082:80 ghcr.io/huggingface/text-generation-inference:0.8.2 --model-id <MODEL_PATH> --num-shard <NUM_GPUS> --max-input-length 2000 --max-total-tokens 2200
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Or via pip
+pip install uv
+```
+
+### 2. Clone the repository and install dependencies
+
+```sh
+git clone https://github.com/medhalt/medhalt.git
+cd medhalt
+
+# Create virtual environment and install all pinned dependencies from uv.lock
+uv sync
+```
+
+This creates a `.venv/` directory and installs all dependencies (torch, transformers, text-generation, datasets, etc.) at the exact versions specified in `uv.lock`.
+
+### 3. (Optional) Activate the virtual environment
+
+The shell scripts use `uv run` and do not require manual activation. If you want an interactive shell session:
+
+```sh
+source .venv/bin/activate
+```
+
+> **Python version:** Python 3.9+ is required. `uv` will automatically use a compatible interpreter.
+
+---
+
+## Evaluation Instructions
+
+1. Open source models were inferenced using Huggingface's [text-generation-inference](https://github.com/huggingface/text-generation-inference) library. Spin up a TGI inference server using the below command:
+
+```sh
+docker run -e HUGGING_FACE_HUB_TOKEN=<HF_TOKEN> \
+  --gpus all --shm-size 1g -p 8082:80 \
+  ghcr.io/huggingface/text-generation-inference:0.8.2 \
+  --model-id <MODEL_PATH> \
+  --num-shard <NUM_GPUS> \
+  --max-input-length 2000 \
+  --max-total-tokens 2200
 ```
 
 2. Run inference of the model
@@ -78,12 +122,29 @@ docker run  -e HUGGING_FACE_HUB_TOKEN=<HF_TOKEN> --gpus all --shm-size 1g -p 808
 sh run_inference.sh <model_id>
 ```
 
+Optional arguments (with defaults):
+
+```sh
+sh run_inference.sh <model_id> [temperature=0.6] [batch_size=4] [max_new_tokens=128] [rest_client=http://127.0.0.1:8082/generate] [output_folder=./medhalt/predictions/]
+```
+
 3. Run evaluation
 
 ```sh
-
 sh run_eval.sh <path_to_dataset_folder> <path_to_save_predictions>
+```
 
+### Adding or updating dependencies
+
+```sh
+# Add a new package
+uv add <package>
+
+# Upgrade all packages within constraints
+uv lock --upgrade
+
+# Re-sync environment after lockfile changes
+uv sync
 ```
 
 ## Citation

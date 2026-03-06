@@ -18,7 +18,7 @@ declare -a folders=(
 for key in "${folders[@]}":
 do
 	echo "Running prediction for ${key}"
-	python3 evaluate.py \
+	uv run python evaluate.py \
 		--prediction_folder=${prediction_folder}/${key} \
 		--dataset_folder=${datasets_folder} \
 		--do_json_conversion

@@ -6,7 +6,7 @@ max_new_tokens=${4-128}
 rest_client=${5-http://127.0.0.1:8082/generate}
 output_folder=${6-./medhalt/predictions/}
 
-python3 medhalt/models/model.py --model_path=$model \
+uv run python medhalt/models/model.py --model_path=$model \
                  --dataset_name=$dataset_name \
                  --temperature=$temperature \
                  --batch_size=$batch_size \
