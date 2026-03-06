@@ -91,9 +91,10 @@ class Model:
             with open(os.path.join(pred_folder,f"{dataset_name}.csv"), 'a') as f:
                 writer = csv.writer(f)
                 for gtext,_id in  zip(generated_texts,ids):
-                    writer.writerow([_id,gtext.generated_text])
+                    text = gtext if isinstance(gtext, str) else gtext.generated_text
+                    writer.writerow([_id, text])
                     
-            outputs.append({"generated_text":[gtext.generated_text for gtext in generated_texts],"id":ids})
+            outputs.append({"generated_text":[gtext if isinstance(gtext, str) else gtext.generated_text for gtext in generated_texts],"id":ids})
         
         with open(os.path.join(pred_folder,"gen_kwargs.json"),'w') as fp:
             json.dump(gen_kwargs,fp)

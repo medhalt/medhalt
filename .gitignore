@@ -1,1 +1,9 @@
 .ipynb_checkpoints/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+medhalt/predictions/
