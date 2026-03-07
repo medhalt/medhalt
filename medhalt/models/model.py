@@ -62,9 +62,12 @@ class Model:
                                                     clean_up_tokenization_spaces=True)
         return generated_text
     
-    def run_generation(self,dataset_name,prompt_template_fn,batch_size=16,output_folder=None,**gen_kwargs):
+    def run_generation(self,dataset_name,prompt_template_fn,batch_size=16,output_folder=None,n_samples=None,**gen_kwargs):
         outputs = []
         dataset = PromptDataset(dataset_name,prompt_template_fn)
+
+        if n_samples:
+            dataset = dataset.sample(n_samples)
         
         if self.rest_client:
             _collate_fn = dataset._restclient_collate_fn   
@@ -119,7 +122,7 @@ if __name__ == "__main__":
     #parser.add_argument("--top_k",type=float,default=0)
     parser.add_argument("--rest_client",type=str)
     parser.add_argument("--output_folder",type=str)
-
+    parser.add_argument("--n_samples",type=int,default=None)
     
     
     args = parser.parse_args()
@@ -145,7 +148,8 @@ if __name__ == "__main__":
                                                     top_p=args.top_p,
                                                     output_folder=args.output_folder,
                                                     stop_sequences=["Stop Here"],
-                                                    seed=42) 
+                                                    seed=42,
+                                                    n_samples=args.n_samples) 
         except Exception as e:
             print(e)
 

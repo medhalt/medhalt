@@ -5,6 +5,7 @@ batch_size=${3-4}
 max_new_tokens=${4-128}
 rest_client=${5-http://127.0.0.1:8082/generate}
 output_folder=${6-./medhalt/predictions/}
+n_samples=$N_SAMPLES
 
 uv run python medhalt/models/model.py --model_path=$model \
                  --dataset_name=$dataset_name \
@@ -12,4 +13,5 @@ uv run python medhalt/models/model.py --model_path=$model \
                  --batch_size=$batch_size \
                  --max_new_token=$max_new_tokens \
                  --rest_client=$rest_client \
-                 --output_folder=$output_folder
+                 --output_folder=$output_folder \
+                 --n_samples=$n_samples
