@@ -4,9 +4,8 @@ from torch.utils.data import DataLoader
 from functools import partial
 import torch
 from medhalt.models.utils import PromptDataset
-import asyncio
 from transformers import AutoTokenizer,AutoModelForCausalLM
-from text_generation import AsyncClient
+from huggingface_hub import InferenceClient
 import csv
 
 class Model:
@@ -17,7 +16,7 @@ class Model:
         self.model_path = model_id_or_path
         
         if rest_client:
-            self.client = AsyncClient(rest_client)
+            self.client = InferenceClient(base_url=rest_client)
         else:
             self.tokenizer = AutoTokenizer.from_pretrained(
                 model_id_or_path,
@@ -44,11 +43,10 @@ class Model:
             if self.tokenizer.pad_token_id is None:
                 self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
     
-    async def rest_batch_generate(self,batch_inputs,**gen_kwargs):
-        async_calls = [self.client.generate(prompt,**gen_kwargs) for prompt,_ in zip(*batch_inputs)] 
-        ids = [_id for _,_id in zip(*batch_inputs)]
-        results = await asyncio.gather(*async_calls)
-        return results,ids
+    def rest_batch_generate(self, batch_inputs, **gen_kwargs):
+        prompts, ids = batch_inputs
+        results = [self.client.text_generation(prompt, **gen_kwargs) for prompt in prompts]
+        return results, ids
         
     def batch_generate(self,batch_input,**gen_kwargs):
         with torch.no_grad():
@@ -62,9 +60,9 @@ class Model:
                                                     clean_up_tokenization_spaces=True)
         return generated_text
     
-    def run_generation(self,dataset_name,prompt_template_fn,batch_size=16,output_folder=None,**gen_kwargs):
+    def run_generation(self,dataset_name,prompt_template_fn,batch_size=16,output_folder=None,n_samples=None,**gen_kwargs):
         outputs = []
-        dataset = PromptDataset(dataset_name,prompt_template_fn)
+        dataset = PromptDataset(dataset_name,prompt_template_fn,n_samples=n_samples)
         
         if self.rest_client:
             _collate_fn = dataset._restclient_collate_fn   
@@ -82,7 +80,7 @@ class Model:
         for batch in tqdm(dataloader):
             if self.rest_client:
                 try:
-                    generated_texts,ids = asyncio.run(self.rest_batch_generate(batch,**gen_kwargs))
+                    generated_texts,ids = self.rest_batch_generate(batch,**gen_kwargs)
                 except Exception as e:
                     generated_texts,ids = [f"error:{str(e)}"]*len(batch[0]),["error"]*len(batch[0])
             else:
@@ -119,7 +117,7 @@ if __name__ == "__main__":
     #parser.add_argument("--top_k",type=float,default=0)
     parser.add_argument("--rest_client",type=str)
     parser.add_argument("--output_folder",type=str)
-
+    parser.add_argument("--n_samples",type=int,default=None)
     
     
     args = parser.parse_args()
@@ -145,7 +143,8 @@ if __name__ == "__main__":
                                                     top_p=args.top_p,
                                                     output_folder=args.output_folder,
                                                     stop_sequences=["Stop Here"],
-                                                    seed=42) 
+                                                    seed=42,
+                                                    n_samples=args.n_samples) 
         except Exception as e:
             print(e)
 

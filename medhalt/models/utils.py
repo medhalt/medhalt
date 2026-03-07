@@ -10,9 +10,12 @@ class PromptDataset(Dataset):
         self,
         dataset_name: str,
         prompt_template_fn: Optional[Callable[[],str]],
+        n_samples: Optional[int] = None,
     ):
         super().__init__() 
-        self.dataset = get_samples(dataset_name=dataset_name,shots=2,prompt_version='v0') 
+        self.dataset = get_samples(dataset_name=dataset_name,shots=2,prompt_version='v0')
+        if n_samples is not None:
+            self.dataset = self.dataset[:n_samples]
         self.prompt_template_fn = prompt_template_fn
 
     @staticmethod
